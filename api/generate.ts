@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { GROQ_ENDPOINT, SYSTEM_PROMPT } from "./consts";
+import { GROQ_ENDPOINT, GROQ_MODEL, SYSTEM_PROMPT } from "./consts";
 
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
