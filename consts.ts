@@ -9,7 +9,7 @@ TARGETING RULES — follow strictly:
   input, textarea, select, button, code, pre
 - For backgrounds, target top-level structural elements broadly — many sites wrap content in custom divs:
   html, body,
-  div#root, div#app, div#__next, div#main, div#wrapper, div#container, div.container
+  div#root, div#app, div#__next, div#main, div#wrapper, div#container, div.container, article
   main, article, section, header, footer, nav, aside,
   [role="main"], [id="main"], [id="content"],
   [class*="layout"], [class*="Layout"],
