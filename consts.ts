@@ -7,8 +7,16 @@ TARGETING RULES — follow strictly:
   body, p, span, h1, h2, h3, h4, h5, h6, a, li, td, th, label,
   blockquote, article, section, header, footer, nav, main, aside,
   input, textarea, select, button, code, pre
-- For backgrounds, target ONLY top-level structural elements:
-  html, body, main, article, [role="main"], [id="main"], [id="content"],
+- For backgrounds, target top-level structural elements broadly — many sites wrap content in custom divs:
+  html, body,
+  div#root, div#app, div#__next, div#main, div#wrapper, div#container,
+  main, article, section, header, footer, nav, aside,
+  [role="main"], [id="main"], [id="content"],
+  [class*="layout"], [class*="Layout"],
+  [class*="wrapper"], [class*="Wrapper"],
+  [class*="container"], [class*="Container"],
+  [class*="page-"], [class*="Page"],
+  [class*="content-wrap"], [class*="app-body"],
   [class*="feed"], [class*="content"], [class*="page"], [class*="layout"]
 - NEVER target bare "div" — this breaks complex web apps
 - NEVER target "*" (universal selector)
