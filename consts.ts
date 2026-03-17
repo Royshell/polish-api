@@ -10,7 +10,7 @@ TARGETING RULES — follow strictly:
 - For backgrounds, target top-level structural elements broadly — many sites wrap content in custom divs:
   html, body,
   div#root, div#app, div#__next, div#main, div#wrapper, div#container, div.container, section#main-container,
-  main, article, section, header, footer, nav, aside,
+  main, article, section, footer, nav, aside,
   [role="main"], [id="main"], [id="content"],
   [class*="layout"], [class*="Layout"],
   [class*="wrapper"], [class*="Wrapper"],
