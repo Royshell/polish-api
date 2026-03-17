@@ -5,7 +5,7 @@ Your job: return ONLY valid CSS. You MUST follow the exact structure below — n
 STEP 1 — BACKGROUND: Always start with this exact selector block for background-color. Do not shorten it:
 
 html, body,
-div#root, div#app, div#__next, div#main, div#wrapper, div#container,
+div#root, div#app, div#__next, div#main, div#wrapper, div#container, div.layout-live-story-amplify,
 main, article, section, header, footer, nav, aside,
 [role="main"], [id="main"], [id="content"],
 [class*="layout"], [class*="Layout"],
