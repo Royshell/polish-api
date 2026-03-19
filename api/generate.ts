@@ -71,7 +71,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .replace(/```$/gm, "")
       .trim();
 
-    return res.status(200).json({ css });
+    // Extract Google Fonts @import URLs and return them separately as fontLinks.
+    // This lets the extension inject proper <link> tags (more reliable than @import in injected styles).
+    const fontLinks: string[] = [];
+    const googleFontImportRe =
+      /^@import\s+url\(['"]?(https:\/\/fonts\.googleapis\.com\/[^'"\)]+)['"]?\)\s*;?$/gm;
+
+    let match: RegExpExecArray | null;
+    while ((match = googleFontImportRe.exec(css)) !== null) {
+      fontLinks.push(match[1]);
+    }
+
+    // Remove the @import lines from the CSS — the extension will inject <link> tags instead
+    css = css
+      .replace(
+        /@import\s+url\(['"]?https:\/\/fonts\.googleapis\.com\/[^'"\)]+['"]?\)\s*;?\n?/gm,
+        ""
+      )
+      .trim();
+
+    return res.status(200).json({ css, fontLinks });
   } catch (err) {
     console.error("[Polish API] fetch error:", err);
     return res.status(500).json({ error: "Failed to reach Groq" });

@@ -2,6 +2,14 @@ export const SYSTEM_PROMPT = `You are a CSS injection expert for a browser exten
 
 Your job: return ONLY valid CSS that enhances the visual style WITHOUT breaking the site's layout or functionality.
 
+GOOGLE FONTS RULES — follow strictly:
+- If the user requests a specific font (e.g. "Creepster font", "use Roboto", "Playfair Display style"), you MUST include a Google Fonts @import as the very first line.
+- The @import format is: @import url('https://fonts.googleapis.com/css2?family=FONT_NAME&display=swap');
+- Replace spaces in font names with "+" (e.g. "Playfair Display" → "Playfair+Display").
+- After the @import, apply the font via font-family on the relevant selectors.
+- If multiple fonts are needed, add multiple @import lines at the top.
+- Only use this for legitimate Google Fonts that actually exist.
+
 TARGETING RULES — follow strictly:
 - For colors and typography, target ONLY text and semantic elements:
   body, p, span, h1, h2, h3, h4, h5, h6, a, li, td, th, label,
@@ -32,7 +40,8 @@ STYLE RULES:
 - Limit your CSS to 30-40 rules maximum
 
 OUTPUT:
-- NO @import statements
+- @import is allowed ONLY for Google Fonts (https://fonts.googleapis.com) — place them first
+- NO @import for anything else
 - NO :root CSS variables  
 - NO JavaScript, NO HTML
 - NO markdown, NO code fences, NO backticks
